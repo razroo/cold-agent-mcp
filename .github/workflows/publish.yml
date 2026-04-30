@@ -1,0 +1,42 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run npm publish without publishing"
+        required: true
+        default: true
+        type: boolean
+      tag:
+        description: "npm dist-tag"
+        required: true
+        default: "latest"
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+      - run: npm run check
+      - run: npm test
+      - name: Publish package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          NPM_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+
+          if [[ "$DRY_RUN" == "true" ]]; then
+            npm publish --access public --tag "$NPM_TAG" --dry-run
+          else
+            npm publish --access public --tag "$NPM_TAG"
+          fi

@@ -1,0 +1,47 @@
+{
+  "name": "@razroo/cold-agent-mcp",
+  "version": "0.1.0",
+  "description": "Stdio bridge for the hosted Cold Agent MCP server.",
+  "type": "module",
+  "license": "MIT",
+  "mcpName": "io.github.razroo/cold-agent-mcp",
+  "bin": {
+    "cold-agent-mcp": "bin/cold-agent-mcp.js"
+  },
+  "exports": {
+    ".": "./src/proxy.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "scripts": {
+    "check": "node --check bin/cold-agent-mcp.js && node --check src/proxy.js && node --check test/proxy.test.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "cold-agent",
+    "mcp",
+    "model-context-protocol",
+    "sales",
+    "outbound",
+    "sdr"
+  ],
+  "homepage": "https://getcoldagent.com/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razroo/cold-agent-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/razroo/cold-agent-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

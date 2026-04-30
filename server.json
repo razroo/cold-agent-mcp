@@ -1,0 +1,51 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.razroo/cold-agent-mcp",
+  "title": "Cold Agent MCP",
+  "description": "Operate Cold Agent sales workspaces, campaigns, leads, deliverability, and SDR workflows from MCP clients.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/razroo/cold-agent-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://getcoldagent.com/api/mcp",
+      "headers": [
+        {
+          "name": "X-Cold-Agent-API-Key",
+          "description": "Cold Agent API key from Settings > API Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@razroo/cold-agent-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "COLD_AGENT_API_KEY",
+          "description": "Cold Agent API key from Settings > API Keys.",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        },
+        {
+          "name": "COLD_AGENT_MCP_URL",
+          "description": "Optional Cold Agent MCP endpoint override.",
+          "isRequired": false,
+          "format": "uri",
+          "default": "https://getcoldagent.com/api/mcp"
+        }
+      ]
+    }
+  ]
+}
