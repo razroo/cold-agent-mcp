@@ -119,7 +119,7 @@ async function postToRemote(rawLine, payload, config, fetchImpl) {
       Accept: "application/json, text/event-stream",
       Authorization: `Bearer ${config.apiKey}`,
       "Content-Type": "application/json",
-      "User-Agent": "@razroo/cold-agent-mcp/0.1.0",
+      "User-Agent": "@razroo/cold-agent-mcp/0.1.1",
     };
 
     if (config.protocolVersion) {

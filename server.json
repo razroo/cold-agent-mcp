@@ -3,7 +3,7 @@
   "name": "io.github.razroo/cold-agent-mcp",
   "title": "Cold Agent MCP",
   "description": "Operate Cold Agent sales workspaces, campaigns, leads, deliverability, and SDR workflows from MCP clients.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "url": "https://github.com/razroo/cold-agent-mcp",
     "source": "github"
@@ -26,7 +26,7 @@
     {
       "registryType": "npm",
       "identifier": "@razroo/cold-agent-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": {
         "type": "stdio"
       },

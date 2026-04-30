@@ -16,7 +16,26 @@ Use this package when your MCP client prefers a local stdio command instead of a
 - A paid Cold Agent workspace
 - A Cold Agent API key from [Settings > API Keys](https://getcoldagent.com/settings/api-keys)
 
-## Claude Code, Codex, OpenCode, and other stdio MCP clients
+## Install
+
+Replace `YOUR_COLD_AGENT_API_KEY` with a key from [Cold Agent Settings > API Keys](https://getcoldagent.com/settings/api-keys).
+
+<details open>
+<summary>Claude Code</summary>
+
+**One-line install:**
+
+```bash
+claude mcp add -e COLD_AGENT_API_KEY=YOUR_COLD_AGENT_API_KEY cold-agent -- npx -y @razroo/cold-agent-mcp
+```
+
+**Uninstall:**
+
+```bash
+claude mcp remove cold-agent
+```
+
+Or manually add to `.mcp.json` (project-level) or `~/.claude/settings.json` (global):
 
 ```json
 {
@@ -31,6 +50,182 @@ Use this package when your MCP client prefers a local stdio command instead of a
   }
 }
 ```
+
+To uninstall manually, remove the `cold-agent` entry from the config file.
+
+</details>
+
+<details>
+<summary>Claude Desktop</summary>
+
+Add to your Claude Desktop MCP config:
+
+```json
+{
+  "mcpServers": {
+    "cold-agent": {
+      "command": "npx",
+      "args": ["-y", "@razroo/cold-agent-mcp"],
+      "env": {
+        "COLD_AGENT_API_KEY": "YOUR_COLD_AGENT_API_KEY"
+      }
+    }
+  }
+}
+```
+
+To uninstall, remove the `cold-agent` entry from the config file.
+
+</details>
+
+<details>
+<summary>OpenAI Codex</summary>
+
+**One-line install:**
+
+```bash
+codex mcp add cold-agent --env COLD_AGENT_API_KEY=YOUR_COLD_AGENT_API_KEY -- npx -y @razroo/cold-agent-mcp
+```
+
+**Uninstall:**
+
+```bash
+codex mcp remove cold-agent
+```
+
+Or manually add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.cold-agent]
+command = "npx"
+args = ["-y", "@razroo/cold-agent-mcp"]
+
+[mcp_servers.cold-agent.env]
+COLD_AGENT_API_KEY = "YOUR_COLD_AGENT_API_KEY"
+```
+
+To uninstall manually, remove the `[mcp_servers.cold-agent]` entry from the config file.
+
+</details>
+
+<details>
+<summary>OpenCode</summary>
+
+Add to `opencode.json` in your project root or `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "cold-agent": {
+      "type": "local",
+      "command": ["npx", "-y", "@razroo/cold-agent-mcp"],
+      "enabled": true,
+      "environment": {
+        "COLD_AGENT_API_KEY": "YOUR_COLD_AGENT_API_KEY"
+      }
+    }
+  }
+}
+```
+
+To uninstall, remove the `cold-agent` entry from `mcp`.
+
+</details>
+
+<details>
+<summary>Cursor</summary>
+
+Open Settings -> MCP -> Add new MCP server, or add to `~/.cursor/mcp.json` or `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "cold-agent": {
+      "command": "npx",
+      "args": ["-y", "@razroo/cold-agent-mcp"],
+      "env": {
+        "COLD_AGENT_API_KEY": "YOUR_COLD_AGENT_API_KEY"
+      }
+    }
+  }
+}
+```
+
+To uninstall, remove the entry from MCP settings.
+
+</details>
+
+<details>
+<summary>Windsurf</summary>
+
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "cold-agent": {
+      "command": "npx",
+      "args": ["-y", "@razroo/cold-agent-mcp"],
+      "env": {
+        "COLD_AGENT_API_KEY": "YOUR_COLD_AGENT_API_KEY"
+      }
+    }
+  }
+}
+```
+
+To uninstall, remove the entry from the config file.
+
+</details>
+
+<details>
+<summary>VS Code / Copilot</summary>
+
+**One-line install:**
+
+```bash
+code --add-mcp '{"name":"cold-agent","command":"npx","args":["-y","@razroo/cold-agent-mcp"],"env":{"COLD_AGENT_API_KEY":"YOUR_COLD_AGENT_API_KEY"}}'
+```
+
+Or add to `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "cold-agent": {
+      "command": "npx",
+      "args": ["-y", "@razroo/cold-agent-mcp"],
+      "env": {
+        "COLD_AGENT_API_KEY": "YOUR_COLD_AGENT_API_KEY"
+      }
+    }
+  }
+}
+```
+
+To uninstall, remove the entry from MCP settings or delete the server from the MCP panel.
+
+</details>
+
+<details>
+<summary>Other MCP clients</summary>
+
+Any MCP client that supports stdio transport can use Cold Agent. The server config is:
+
+```json
+{
+  "command": "npx",
+  "args": ["-y", "@razroo/cold-agent-mcp"],
+  "env": {
+    "COLD_AGENT_API_KEY": "YOUR_COLD_AGENT_API_KEY"
+  }
+}
+```
+
+To uninstall, remove the server entry from your client's MCP configuration.
+
+</details>
 
 ## Environment Variables
 
