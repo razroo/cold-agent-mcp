@@ -1,7 +1,7 @@
 {
   "name": "@razroo/cold-agent-mcp",
   "version": "0.1.1",
-  "description": "Stdio bridge for the hosted Cold Agent MCP server.",
+  "description": "Stdio bridge for the hosted Cold Agent MCP server, including sales, deliverability, and phone workflows.",
   "type": "module",
   "license": "MIT",
   "mcpName": "io.github.razroo/cold-agent-mcp",

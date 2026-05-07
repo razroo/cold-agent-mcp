@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.razroo/cold-agent-mcp",
   "title": "Cold Agent MCP",
-  "description": "Operate Cold Agent sales workspaces, campaigns, leads, deliverability, and SDR workflows from MCP clients.",
+  "description": "Operate Cold Agent sales workspaces, campaigns, leads, deliverability, phone, and SDR workflows from MCP clients.",
   "version": "0.1.1",
   "repository": {
     "url": "https://github.com/razroo/cold-agent-mcp",

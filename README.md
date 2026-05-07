@@ -236,6 +236,17 @@ To uninstall, remove the server entry from your client's MCP configuration.
 | `COLD_AGENT_MCP_TIMEOUT_MS` | No | `60000` | Per-request timeout. |
 | `COLD_AGENT_MCP_PROTOCOL_VERSION` | No | `2025-11-25` | MCP protocol version header override. |
 
+## Phone And Voice Tools
+
+The hosted Cold Agent MCP server includes native phone workflow tools:
+
+- `get_voice_setup` — view voice settings and managed Twilio numbers.
+- `configure_voice_settings` — set callback phone, provider, caller ID, and call logging.
+- `search_voice_numbers` — find available managed Twilio numbers with pricing.
+- `purchase_voice_number` — buy a managed Twilio number after explicit confirmation.
+- `start_voip_call` — start a Lead Desk click-to-call. With Twilio configured, Cold Agent calls your callback phone first, then bridges to the lead from the managed caller ID.
+- `setup_voip` — create a webhook API key for external call event ingestion.
+
 ## Remote MCP Config
 
 If your client supports hosted Streamable HTTP servers with headers, you can skip this package:
